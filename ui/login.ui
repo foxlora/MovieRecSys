@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Login</class>
+ <widget class="QWidget" name="Login">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Login</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="ToMainWindowButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>返回主界面</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="labelAlignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="horizontalSpacing">
+        <number>16</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>23</number>
+       </property>
+       <property name="topMargin">
+        <number>100</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="accountLabel">
+         <property name="styleSheet">
+          <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
+
+color: rgb(103, 103, 103);</string>
+         </property>
+         <property name="text">
+          <string>账    号：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="accountLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="passwordLabel">
+         <property name="styleSheet">
+          <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
+
+color: rgb(103, 103, 103);</string>
+         </property>
+         <property name="text">
+          <string>密    码：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="pwdLineEdit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="inputMask">
+          <string notr="true" extracomment="请输入密码"/>
+         </property>
+         <property name="text">
+          <string notr="true" extracomment="请输入密码"/>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string notr="true" extracomment="hello"/>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QPushButton" name="loginButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>登录</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>119</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item alignment="Qt::AlignLeft">
+    <widget class="QPushButton" name="registerButton">
+     <property name="text">
+      <string>注册账号</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>registerButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Login</receiver>
+   <slot>show_register()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>37</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>409</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loginButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Login</receiver>
+   <slot>show_login_sucess()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>339</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>410</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ToMainWindowButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Login</receiver>
+   <slot>show_mainwindow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>16</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>640</x>
+     <y>13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>accountLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Login</receiver>
+   <slot>login_button_vaild()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>26</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pwdLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Login</receiver>
+   <slot>login_button_vaild()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>410</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>424</x>
+     <y>30</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>show_register()</slot>
+  <slot>show_login_sucess()</slot>
+  <slot>show_mainwindow()</slot>
+  <slot>login_button_vaild()</slot>
+ </slots>
+</ui>

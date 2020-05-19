@@ -1,0 +1,17 @@
+log_formatter1= [2020-05-18 15:26:41,357][MainThread:9056][task_id:info][logger.py:44][INFO] : hello
+log_formatter1= [2020-05-18 15:59:18,974][MainThread:17956][task_id:info][logger.py:44][INFO] : 数据集成功构建
+log_formatter1= [2020-05-18 17:06:01,369][MainThread:18696][task_id:info][logger.py:44][INFO] : 数据集成功构建
+log_formatter1= [2020-05-18 17:06:26,311][MainThread:18164][task_id:info][logger.py:44][INFO] : 数据集成功构建
+log_formatter1= [2020-05-18 17:27:07,201][MainThread:18140][task_id:info][logger.py:44][INFO] : 数据集成功构建
+log_formatter1= [2020-05-18 17:27:28,522][MainThread:16836][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 11:03:15,095][MainThread:15844][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 11:39:44,682][MainThread:14112][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 11:41:58,691][MainThread:7352][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 12:01:03,368][MainThread:12068][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 12:02:17,878][MainThread:5712][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 17:35:13,487][MainThread:21508][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 17:39:01,804][MainThread:15604][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 17:45:03,807][MainThread:20892][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 18:09:46,523][MainThread:19760][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 18:10:22,483][MainThread:15892][task_id:info][logger.py:44][INFO] : 数据集成功构建
+[2020-05-19 18:12:23,930][MainThread:21648][task_id:info][logger.py:44][INFO] : 数据集成功构建

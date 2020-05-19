@@ -1,0 +1,26 @@
+[2020-05-17 21:26:47,423][MainThread:1268][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 21:27:28,727][MainThread:9012][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 21:47:48,193][MainThread:25416][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 21:50:36,336][MainThread:8628][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 21:58:01,643][MainThread:25284][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 21:59:15,092][MainThread:16976][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:01:15,994][MainThread:23712][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:02:21,161][MainThread:2952][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:03:22,832][MainThread:20332][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:03:39,474][MainThread:6240][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:06:06,423][MainThread:15748][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:06:14,337][MainThread:21380][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:07:18,826][MainThread:18760][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:11:48,620][MainThread:21216][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败
+[2020-05-17 22:12:41,463][MainThread:20928][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1148, 'The used command is not allowed with this MySQL version')
+[2020-05-17 22:13:21,304][MainThread:15880][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1148, 'The used command is not allowed with this MySQL version')
+[2020-05-17 22:13:43,531][MainThread:20084][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1290, 'The MySQL server is running with the --secure-file-priv option so it cannot execute this statement')
+[2020-05-17 22:41:12,646][MainThread:23164][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(13, "Can't get stat of '/var/lib/data/links.csv' (OS errno 2 - No such file or directory)")
+[2020-05-17 22:42:01,665][MainThread:10412][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1148, 'The used command is not allowed with this MySQL version')
+[2020-05-17 22:42:08,993][MainThread:6100][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(13, "Can't get stat of '/var/lib/data/links.csv' (OS errno 2 - No such file or directory)")
+[2020-05-17 22:46:34,910][MainThread:3376][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1148, 'The used command is not allowed with this MySQL version')
+[2020-05-17 22:46:36,153][MainThread:22800][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败(1148, 'The used command is not allowed with this MySQL version')
+[2020-05-18 11:12:10,082][MainThread:9960][task_id:error][logger.py:50]' '[ERROR] : (2003, "Can't connect to MySQL server on '192.168.133.128' (timed out)")
+[2020-05-18 11:12:10,082][MainThread:9960][task_id:error][logger.py:50]' '[ERROR] : MovieRecommender数据库创建失败
+[2020-05-18 11:12:10,082][MainThread:9960][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败local variable 'cur' referenced before assignment
+[2020-05-18 11:14:07,435][MainThread:13008][task_id:error][logger.py:50]' '[ERROR] : (2003, "Can't connect to MySQL server on '192.168.133.128' (timed out)")

@@ -1,0 +1,7 @@
+[2020-05-17 18:42:07,822][MainThread:4432][task_id:error][logger.py:50]' '[ERROR] : error msg
+[2020-05-18 11:15:28,407][MainThread:12592][task_id:error][logger.py:50]' '[ERROR] : error msg
+[2020-05-18 14:47:02,645][MainThread:18740][task_id:error][logger.py:50]' '[ERROR] : error msg
+[2020-05-18 15:03:43,707][MainThread:9476][task_id:error][logger.py:52]' '[ERROR] : error msg
+[2020-05-18 15:04:23,529][MainThread:13072][task_id:error][logger.py:52]' '[ERROR] : error msg
+[2020-05-18 15:16:11,246][MainThread:18792][task_id:error][logger.py:53]' '[ERROR] : error msg
+log_formatter1= [2020-05-18 15:26:25,202][MainThread:1796][task_id:error][logger.py:53][ERROR] : error msg

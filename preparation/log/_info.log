@@ -1,0 +1,62 @@
+[2020-05-17 18:53:19,898][MainThread:1704][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess 成功
+[2020-05-17 18:55:03,624][MainThread:7568][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:26:47,371][MainThread:1268][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:26:47,410][MainThread:1268][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 21:27:28,654][MainThread:9012][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:27:28,669][MainThread:9012][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 21:47:48,143][MainThread:25416][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:47:48,151][MainThread:25416][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 21:50:36,275][MainThread:8628][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:50:36,288][MainThread:8628][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 21:58:01,618][MainThread:25284][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:58:01,632][MainThread:25284][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 21:59:15,078][MainThread:16976][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 21:59:15,092][MainThread:16976][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:01:15,964][MainThread:23712][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:01:15,971][MainThread:23712][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:02:21,148][MainThread:2952][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:02:21,160][MainThread:2952][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:03:22,823][MainThread:20332][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:03:22,832][MainThread:20332][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:03:39,466][MainThread:6240][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:03:39,474][MainThread:6240][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:05:20,497][MainThread:20208][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:05:20,503][MainThread:20208][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:05:42,178][MainThread:23908][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:05:42,187][MainThread:23908][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:06:06,415][MainThread:15748][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:06:06,422][MainThread:15748][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:06:14,330][MainThread:21380][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:06:14,337][MainThread:21380][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:07:18,819][MainThread:18760][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:07:18,826][MainThread:18760][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:07:46,000][MainThread:5172][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:07:46,008][MainThread:5172][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:08:45,173][MainThread:25068][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:08:45,180][MainThread:25068][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:09:15,973][MainThread:11344][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:09:15,981][MainThread:11344][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:10:27,200][MainThread:13020][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:10:27,206][MainThread:13020][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:11:48,582][MainThread:21216][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:11:48,594][MainThread:21216][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:12:13,396][MainThread:16628][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:12:13,407][MainThread:16628][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:12:25,442][MainThread:20720][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:12:25,468][MainThread:20720][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:12:41,440][MainThread:20928][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:12:41,454][MainThread:20928][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:13:21,272][MainThread:15880][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:13:21,284][MainThread:15880][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:13:43,512][MainThread:20084][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:13:43,522][MainThread:20084][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:41:12,617][MainThread:23164][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:41:12,630][MainThread:23164][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:42:01,639][MainThread:10412][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:42:01,653][MainThread:10412][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:42:08,969][MainThread:6100][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:42:08,983][MainThread:6100][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:46:34,879][MainThread:3376][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:46:34,897][MainThread:3376][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
+[2020-05-17 22:46:36,101][MainThread:22800][task_id:info][logger.py:41]' '[INFO] : connect to mysql sucess
+[2020-05-17 22:46:36,118][MainThread:22800][task_id:info][logger.py:41]' '[INFO] : 成功创建MovieRecommender数据库
