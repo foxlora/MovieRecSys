@@ -24,3 +24,6 @@
 [2020-05-18 11:12:10,082][MainThread:9960][task_id:error][logger.py:50]' '[ERROR] : MovieRecommender数据库创建失败
 [2020-05-18 11:12:10,082][MainThread:9960][task_id:error][logger.py:50]' '[ERROR] : links.csv导入数据库失败local variable 'cur' referenced before assignment
 [2020-05-18 11:14:07,435][MainThread:13008][task_id:error][logger.py:50]' '[ERROR] : (2003, "Can't connect to MySQL server on '192.168.133.128' (timed out)")
+[2020-05-19 22:27:20,448][MainThread:18148][task_id:error][logger.py:53][ERROR] : MovieRecommender数据库创建失败
+[2020-05-19 22:27:53,220][MainThread:12540][task_id:error][logger.py:53][ERROR] : MovieRecommender数据库创建失败
+[2020-05-19 22:28:45,278][MainThread:1224][task_id:error][logger.py:53][ERROR] : MovieRecommender数据库创建失败

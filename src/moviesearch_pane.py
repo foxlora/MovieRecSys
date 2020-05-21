@@ -3,44 +3,42 @@
 
 '''
 __author__ = 'Foxlora'
-__time__ = '2020/5/17 13:22'
+__time__ = '2020/5/21 18:17'
+
 
 from PyQt5.Qt import *
-from ui.mainwindow import Ui_mainWindow
+from ui.movie_search import Ui_MovieSearch
 
-class MainWindowPane(QMainWindow,Ui_mainWindow):
+class MovieSearchPane(QWidget,Ui_MovieSearch):
 
-    login_signal = pyqtSignal()
     search_signal = pyqtSignal()
+    back_mainwindow_signal = pyqtSignal()
 
 
     def __init__(self,parent=None,*args,**kwargs):
         super().__init__(parent=parent,*args,**kwargs)
         self.setupUi(self)
-        self.initUI()
 
-    def initUI(self):
 
-        pixmap = QPixmap('../data/images/movieId_1.png')
-        self.label.setPixmap(pixmap)
-
-    def search(self):
+    def search_movie(self):
         '''
         点击“搜索”按钮逻辑槽函数
         :return:
         '''
         search_text = self.searchLineEdit.text()
         #如果找不到影片
+
+        self.keywrodBox.setTitle(f'包含关键词"{search_text}"的电影：')
         self.search_signal.emit()
 
 
-    def to_login(self):
+    def back_mainwindow(self):
         '''
-        点击登录按钮之后逻辑处理
+        返回主界面
         :param:
         :return:
         '''
-        self.login_signal.emit()
+        self.back_mainwindow_signal.emit()
 
 
 
@@ -50,9 +48,9 @@ if __name__ == "__main__":
     import sys
     #创建应用程序对象
     app = QApplication(sys.argv)
-    window = MainWindowPane()
+    window = MovieSearchPane()
     window.search_signal.connect(lambda :print('to search pane'))
-    window.login_signal.connect(lambda :print('to login pane'))
+    window.back_mainwindow_signal.connect(lambda :print('to mainwindow pane'))
 
     window.show()
     sys.exit(app.exec_())

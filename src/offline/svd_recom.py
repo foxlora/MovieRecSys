@@ -7,17 +7,15 @@ __time__ = '2020/5/18 10:46'
 
 from surprise import SVD
 from surprise import Dataset
-from surprise.model_selection import cross_validate
 from surprise import Reader
 from utils.logger import Logger
+from utils.tosql import dftosql
+from utils.config import Config
 from collections import defaultdict
 from surprise import dump
 
 import pandas as pd
 
-import configparser
-config = configparser.RawConfigParser()
-config.read("../../config.ini")
 
 
 logger = Logger()
@@ -29,7 +27,7 @@ class SVDRecom:
     def load_data(self):
         # 载入原始.csv数据
         reader = Reader(line_format='user item rating timestamp', sep=',', skip_lines=1)
-        data = Dataset.load_from_file(file_path='../' + config['DATAPATH']['ratings_path'], reader=reader)
+        data = Dataset.load_from_file(file_path='../' + Config().config['DATAPATH']['ratings_path'], reader=reader)
 
         # 构建训练集
         self.trainset = data.build_full_trainset()
@@ -106,23 +104,27 @@ class SVDRecom:
     def predict(self):
         #predict ratings for all pairs (u, i) that are NOT in the training set.
         testset = self.trainset.build_anti_testset()#未评分数据集
+        # testset = self.trainset.build_testset()#已评分数据集
         self.predictions = self.algo.test(testset)#
 
 
-    def tosql(self):
+    def tosql(self,predictions,database,tablename):
         '''
-        table name:svd_recom
+        table name:svd_predictions
         table columns:['user','movie','true_rating','est']
         :Args:
-            uid: (Raw) id of the user. See :ref:`this note<raw_inner_note>`.
-            iid: (Raw) id of the item. See :ref:`this note<raw_inner_note>`.
-            r_ui(float): The true rating :math:`r_{ui}`. Optional, default is
-                ``None``.
+            predictions:[(uid, iid, true_r, est, _),...]
+            database:name of database stored in mysql
+            tablename:name of table stored in mysql
         :return:
         '''
         top_n = defaultdict(list)
-        for uid, iid, true_r, est, _ in self.predictions:
-            top_n[uid].append((iid, est))
+        df = pd.DataFrame(data=predictions)
+        df.columns = ['uid','iid','true_r','est','detail']
+        svd_predictions = '../../data/svd_predictions.csv'
+        df.to_csv(svd_predictions,index=False)
+        df.drop(columns=['true_r','detail'],inplace=True)
+        dftosql(DataFrame=df,database=database,table_name=tablename)
 
 
         return top_n
@@ -139,8 +141,8 @@ if __name__ == '__main__':
     # svdRecom.load_data()
     # svdRecom.fit()
     # svdRecom.predict()
+    # svdRecom.save_mode('../../data/svd_model')
+    #
     predictions,_ = svdRecom.load_model(file_path='../../data/svd_model')
-    a = svdRecom.get_top_n_byuid(uid='1',predictions=predictions,n=50)
-    print(a)
+    svdRecom.tosql(predictions,'MovieRecommender','svd_predictions')
 
-    # top_n = svdRecom.get_top_n(predictions=svdRecom.predictions,n=10)
