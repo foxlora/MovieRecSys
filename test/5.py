@@ -11,5 +11,7 @@ a = [('4226', 4.54880711094704), ('858', 4.496194040183821), ('2571', 4.45830676
 
 b = pd.DataFrame(a)
 
-b.columns=['a','b']
-print(b)
+b.columns=['first','second']
+
+c = b.loc[b['first']=='858','second'].tolist()[0]
+print(c)

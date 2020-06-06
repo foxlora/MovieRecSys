@@ -8,6 +8,7 @@ __time__ = '2020/5/21 18:17'
 
 from PyQt5.Qt import *
 from ui.movie_search import Ui_MovieSearch
+from utils.tosql import FetchInFoFromSql
 
 class MovieSearchPane(QWidget,Ui_MovieSearch):
 
@@ -29,6 +30,7 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
         #如果找不到影片
 
         self.keywrodBox.setTitle(f'包含关键词"{search_text}"的电影：')
+        self.init_ui(search_text)
         self.search_signal.emit()
 
 
@@ -41,6 +43,27 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
         self.back_mainwindow_signal.emit()
 
 
+    def init_ui(self,title):
+
+        movies = self.get_moviesId_byname(title)
+        print(movies)
+        # self.keywrodBox.__init__()
+        self.keywrodBox.initUI(movies_list=movies)
+
+
+
+
+    def get_moviesId_byname(self,title):
+        fetchinfo = FetchInFoFromSql()
+        try:
+            sql = f'SELECT movieId FROM MovieRecommender.moviesinfo WHERE title like "%{title}%" limit 10'
+            data = fetchinfo.execute_sql(sql)
+            movies_list = [i[0] for i in data]
+            return movies_list
+        except:
+            return None
+
+
 
 
 
@@ -51,6 +74,7 @@ if __name__ == "__main__":
     window = MovieSearchPane()
     window.search_signal.connect(lambda :print('to search pane'))
     window.back_mainwindow_signal.connect(lambda :print('to mainwindow pane'))
+
 
     window.show()
     sys.exit(app.exec_())

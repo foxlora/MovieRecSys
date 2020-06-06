@@ -7,11 +7,13 @@ __time__ = '2020/5/17 13:22'
 
 from PyQt5.Qt import *
 from ui.mainwindow import Ui_mainWindow
+from src.offline.hot_recom import HotRecom
+
 
 class MainWindowPane(QMainWindow,Ui_mainWindow):
 
     login_signal = pyqtSignal()
-    search_signal = pyqtSignal()
+    search_signal = pyqtSignal(str)
 
 
     def __init__(self,parent=None,*args,**kwargs):
@@ -22,7 +24,11 @@ class MainWindowPane(QMainWindow,Ui_mainWindow):
     def initUI(self):
 
         pixmap = QPixmap('../data/images/movieId_1.png')
-        self.label.setPixmap(pixmap)
+        self.groupBox.initUI(msg='登录后为您推荐内容···')
+
+        hotrem = HotRecom()
+        self.groupBox_2.initUI(movies_list=hotrem.get_current_hotmovies())
+
 
     def search(self):
         '''
@@ -31,7 +37,7 @@ class MainWindowPane(QMainWindow,Ui_mainWindow):
         '''
         search_text = self.searchLineEdit.text()
         #如果找不到影片
-        self.search_signal.emit()
+        self.search_signal.emit(search_text)
 
 
     def to_login(self):

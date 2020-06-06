@@ -14,20 +14,51 @@ from sqlalchemy.types import *
 
 
 
+class FetchInFoFromSql:
+    def __init__(self):
+        try:
+            self.conn,self.cur = self.ConnectSql()
+        except:
 
-def ConnectSql():
-    host = Config().config['MYSQL']["host"]
-    port = Config().config['MYSQL']["port"]
-    user = Config().config['MYSQL']["user"]
-    pwd = Config().config['MYSQL']["pwd"]
-    conn = pymysql.connect(host=host,port=int(port),user=user,password=pwd)
-    cur = conn.cursor()     #生成游标对象
-    return conn,cur
+            print('数据库连接失败')
 
-def Closesql(conn,cur):
-    cur.close()
-    conn.close()
-    return
+    def ConnectSql(self):
+        try:
+            host = Config().config['MYSQL']["host"]
+            port = Config().config['MYSQL']["port"]
+            user = Config().config['MYSQL']["user"]
+            pwd = Config().config['MYSQL']["pwd"]
+            conn = pymysql.connect(host=host,port=int(port),user=user,password=pwd)
+            cur = conn.cursor()     #生成游标对象
+        except:
+            print("数据库连接失败")
+            conn = None
+            cur = None
+
+        return conn,cur
+
+    def execute_sql(self,sql):
+        '''
+        执行sql语句
+        :param sql:
+        :return:
+        '''
+        try:
+            self.cur.execute(sql)
+            data = self.cur.fetchall()
+
+        except:
+            print("查询失败")
+            data = None
+        return data
+
+
+    def Closesql(self):
+        self.cur.close()
+        self.conn.close()
+        return
+
+
 
 def csvtosql(filepath,database,table_name,if_exists="fail",index=False,dtype=None,column_names=None,sep=',',header='infer'):
     '''

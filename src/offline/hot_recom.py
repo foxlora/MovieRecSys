@@ -14,6 +14,7 @@ from utils.tosql import dftosql
 from utils.config import Config
 from collections import defaultdict
 from surprise import dump
+from utils.tosql import FetchInFoFromSql
 
 import pandas as pd
 
@@ -21,13 +22,21 @@ import pandas as pd
 
 logger = Logger()
 
-class HotRecom:
+class HotRecom(FetchInFoFromSql):
     def __init__(self):
-        pass
+        super().__init__()
 
     def load_data(self,filepath):
         # 载入原始.csv数据
         self.df = pd.read_csv(filepath,sep=',',dtype={'movieId':str})
+
+    def save_mode(self, file_path):
+        dump.dump(file_path, algo=self.algo, predictions=self.predictions)
+
+    def load_model(self, file_path):
+        predictions, loaded_algo = dump.load(file_path)
+        return predictions, loaded_algo
+
 
 
     def predict(self,Dataframe:pd.DataFrame,n=20000):
@@ -90,51 +99,43 @@ class HotRecom:
 
         '''
 
-
-
-        df = preditions.iloc[:n]
+        df = predictions.iloc[:n]
         return df.values[:,0]
-
-
-
-
-
-
-
-    def save_mode(self,file_path):
-        dump.dump(file_path,algo=self.algo,predictions=self.predictions)
-
 
 
 
     def tosql(self,predictions,database,tablename):
         '''
-        table name:svd_predictions
-        table columns:['user','movie','true_rating','est']
-        :Args:
-            predictions:[(uid, iid, true_r, est, _),...]
-            database:name of database stored in mysql
-            tablename:name of table stored in mysql
+        将热门推荐结果存储在数据库中，
+        table columns:['movieId','rating_times','mean_rating']
+        :param predictions:
+        :param database:
+        :param tablename:
         :return:
         '''
 
         df = pd.DataFrame(data=predictions)
-        df.columns = ['uid','iid','true_r','est','detail']
-        svd_predictions = '../../data/svd_predictions.csv'
-        df.to_csv(svd_predictions,index=False)
-        df.drop(columns=['true_r','detail'],inplace=True)
-        dftosql(DataFrame=df,database=database,table_name=tablename)
+        df.columns = ['movieId','rating_times','mean_rating']
+        dftosql(DataFrame=df,database=database,table_name=tablename,if_exists="replace")
 
 
 
 
-    def load_model(self,file_path):
-        predictions, loaded_algo = dump.load(file_path)
-        return predictions,loaded_algo
+
+    def get_current_hotmovies(self):
+        sql = f"select movieId from MovieRecommender.hot_recom  limit 10"
+        data = self.execute_sql(sql)#(('356',), ('318',), ('79132',), ('2571',), ('122904',), ('2959',), ('58559',), ('7153',), ('5952',), ('4993',))
+        hot_movies = [i[0] for i in data]
+
+        return hot_movies
+
+
 
 if __name__ == '__main__':
     hot_recom = HotRecom()
-    hot_recom.load_data('../../data/ratings.csv')
-    preditions = hot_recom.predict(hot_recom.df,n=2000)
+    # hot_recom.load_data('../../data/ratings.csv')
+    # preditions = hot_recom.predict(hot_recom.df,n=20000)
 
-    hot_recom.get_top_n_hot(preditions,50)
+    # hot_recom.get_top_n_hot(preditions,50)
+    # hot_recom.tosql(preditions,database='MovieRecommender',tablename='hot_recom')
+    hot_recom.get_current_hotmovies()

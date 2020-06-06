@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>778</width>
     <height>900</height>
    </rect>
   </property>
@@ -20,24 +20,18 @@
    <string>电影推荐系统</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,4,4">
-    <property name="spacing">
-     <number>30</number>
-    </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>2</number>
-    </property>
-    <property name="rightMargin">
-     <number>3</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_21">
     <item alignment="Qt::AlignRight">
      <widget class="QPushButton" name="loginButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="text">
        <string>登录/注册</string>
       </property>
@@ -97,12 +91,6 @@
        </item>
        <item>
         <widget class="QLineEdit" name="searchLineEdit">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-           <horstretch>5</horstretch>
-           <verstretch>3</verstretch>
-          </sizepolicy>
-         </property>
          <property name="whatsThis">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -149,7 +137,7 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QMyMovieGroupBox" name="groupBox">
       <property name="minimumSize">
        <size>
         <width>400</width>
@@ -162,7 +150,13 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QMyMovieGroupBox" name="groupBox_2">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="title">
        <string>当前热门：</string>
       </property>
@@ -172,6 +166,14 @@ color: rgb(255, 255, 255);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QMyMovieGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header location="global">QMyMovieGroupBox</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -181,11 +183,11 @@ color: rgb(255, 255, 255);</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>77</y>
+     <x>688</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
-     <x>832</x>
+     <x>777</x>
      <y>88</y>
     </hint>
    </hints>
