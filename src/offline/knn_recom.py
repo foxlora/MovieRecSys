@@ -39,7 +39,8 @@ class KnnRecom:
     def get_neighbors(self,movie_id_raw,n=10):
         movie_id_inner = self.trainset.to_inner_iid(movie_id_raw)
         movies_inner_id = self.algo.get_neighbors(movie_id_inner,k=n)
-
+        movies_raw_id = [self.trainset.to_raw_iid(inner_id)for inner_id in movies_inner_id]
+        return movies_raw_id
 
     def fit(self):
         # 训练模型
@@ -47,31 +48,43 @@ class KnnRecom:
         self.algo = KNNBaseline(sim_options=sim_options)
         self.algo.fit(trainset=self.trainset)
 
+
     def save_mode(self,file_path):
         dump.dump(file_path,algo=self.algo)
 
 
 
-    def tosql(self,predictions,database,tablename):
+    def tosql(self,n,database,tablename):
+
         '''
-        table name:svd_predictions
-        table columns:['user','movie','true_rating','est']
+
+        table name:knn_predictions
+        table columns:['movieId','k nearest neighbors']
         :Args:
-            predictions:[(uid, iid, true_r, est, _),...]
+            n:number of nearest neighbors
             database:name of database stored in mysql
             tablename:name of table stored in mysql
         :return:
         '''
-        top_n = defaultdict(list)
-        df = pd.DataFrame(data=predictions)
-        df.columns = ['uid','iid','true_r','est','detail']
-        svd_predictions = '../../data/svd_predictions.csv'
-        df.to_csv(svd_predictions,index=False)
-        df.drop(columns=['true_r','detail'],inplace=True)
+
+        data = []
+
+
+        for iid in self.trainset.all_items():
+            movie_rawid = self.trainset.to_raw_iid(iid)
+            movies_inner_id = self.algo.get_neighbors(iid, k=n)
+            data.append([movie_rawid,','.join([(self.trainset.to_raw_iid(inner_id)) for inner_id in movies_inner_id])])
+
+
+        df = pd.DataFrame(data=data)
+        df.columns = ['movieId','k_nearest_neighbors']
+        knn_predictions = '../../data/knn_predictions.csv'
+        df.to_csv(knn_predictions,index=False)
+        print(df)
         dftosql(DataFrame=df,database=database,table_name=tablename)
 
 
-        return top_n
+
 
     def load_model(self,file_path):
         predictions, loaded_algo = dump.load(file_path)
@@ -81,13 +94,14 @@ class KnnRecom:
 
 
 if __name__ == '__main__':
-    svdRecom = SVDRecom()
-    # svdRecom.load_data()
+    knnRecom = KnnRecom()
+    knnRecom.load_data()
+    knnRecom.fit()
     # svdRecom.fit()
     # svdRecom.predict()
     # svdRecom.save_mode('../../data/svd_model')
     #
-    predictions,_ = svdRecom.load_model(file_path='../../data/svd_model')
-    svdRecom.tosql(predictions,'MovieRecommender','svd_predictions')
+
+    knnRecom.tosql(20,'MovieRecommender','knn_predictions')
 
 

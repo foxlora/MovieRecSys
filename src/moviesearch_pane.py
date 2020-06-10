@@ -19,6 +19,7 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
     def __init__(self,parent=None,*args,**kwargs):
         super().__init__(parent=parent,*args,**kwargs)
         self.setupUi(self)
+        self.keywrodBox.initUI()
 
 
     def search_movie(self):
@@ -30,7 +31,7 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
         #如果找不到影片
 
         self.keywrodBox.setTitle(f'包含关键词"{search_text}"的电影：')
-        self.init_ui(search_text)
+        self.updateUI(search_text)
         self.search_signal.emit()
 
 
@@ -43,12 +44,12 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
         self.back_mainwindow_signal.emit()
 
 
-    def init_ui(self,title):
+    def updateUI(self,title):
 
         movies = self.get_moviesId_byname(title)
         print(movies)
         # self.keywrodBox.__init__()
-        self.keywrodBox.initUI(movies_list=movies)
+        self.keywrodBox.updateUI(movies_list=movies)
 
 
 
@@ -73,6 +74,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MovieSearchPane()
     window.search_signal.connect(lambda :print('to search pane'))
+
     window.back_mainwindow_signal.connect(lambda :print('to mainwindow pane'))
 
 

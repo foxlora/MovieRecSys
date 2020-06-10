@@ -217,6 +217,7 @@ class FetchMovieInfo:
         df.to_csv('../data/moviesinfo.csv',index=False)
         dftosql(DataFrame=df,database='MovieRecommender',table_name='moviesinfo',if_exists='replace')
 
+
 class FetchFromMySql(FetchInFoFromSql):
     def __init__(self):
         super().__init__()
@@ -271,9 +272,6 @@ class FetchFromMySql(FetchInFoFromSql):
         :param movieId:
         :return:
         '''
-
-
-
         sql = f"select title from MovieRecommender.moviesinfo where movieId = {movieId}"
         data = self.execute_sql(sql)
         movie_title = data[0][0]
@@ -286,13 +284,37 @@ class FetchFromMySql(FetchInFoFromSql):
         :param movieId:
         :return:
         '''
-
-
-
         sql = f"select date from MovieRecommender.moviesinfo where movieId = {movieId}"
         data = self.execute_sql(sql)
         movie_date = data[0][0]
         return movie_date
+
+
+    def get_movie_ratinginfo(self,movieId):
+        '''
+        获取电影海报
+        :param movieId:
+        :return:
+        '''
+
+        sql = f"select rating_times,mean_rating from MovieRecommender.hot_recom_all where movieId = {movieId}"
+        data = self.execute_sql(sql)
+        rating_times,mean_rating = data[0]
+        return rating_times,mean_rating
+
+
+    def get_movie_briefinfo(self,movieId):
+        '''
+        获取电影海报
+        :param movieId:
+        :return:
+        '''
+
+        sql = f"select title,date,genres,briefinfo,url_imdbid from MovieRecommender.moviesinfo where movieId = {movieId}"
+        data = self.execute_sql(sql)
+        title,date,genres,briefinfo,url_imdbid = data[0]
+        return title,date,genres,briefinfo,url_imdbid
+
 
 if __name__ == '__main__':
     fetch_movie = FetchFromMySql()
@@ -302,4 +324,4 @@ if __name__ == '__main__':
     #
     # tk_image = fetch_movie.get_image(src)
 
-    fetch_movie.get_movie_image('1')
+    fetch_movie.get_movie_briefinfo('1')

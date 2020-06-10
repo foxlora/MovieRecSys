@@ -75,6 +75,41 @@ class HotRecom(FetchInFoFromSql):
         df_hot_recom.sort_values(['rating_times','mean_rating'],inplace=True,ascending=False)
         return df_hot_recom
 
+    def predict_all(self,Dataframe:pd.DataFrame):
+        '''
+        根据特定时间段打分的人数判断，如果人数相同，则比较平均评分
+        :arg:
+            n = 参与统计的最近记录数目，默认为20000
+        :return:
+        DataFrame:['movieId','rating_times','mean_rating']
+        '''
+        df = Dataframe
+
+        df.sort_values('timestamp',inplace=True)
+
+
+
+        df_group_id = df.groupby('movieId').count()
+        df_group_mean = df.groupby('movieId').mean()
+
+
+        df_group_mean = df_group_mean.reset_index(drop=True)
+
+
+        df_hot_recom_all = df_group_id.reset_index()
+
+        df_hot_recom_all.drop(["userId","timestamp"],axis=1,inplace=True)
+
+
+        df_hot_recom_all['mean_rating'] = df_group_mean['rating']
+        df_hot_recom_all.rename(columns={'rating':'rating_times'},inplace=True)
+
+
+        #给处理好的df按照rating_times,以及mean_rating排序：【movieId  rating_times  mean_rating】
+
+        df_hot_recom_all.sort_values(['rating_times','mean_rating'],inplace=True,ascending=False)
+        return df_hot_recom_all
+
 
 
 
@@ -133,9 +168,9 @@ class HotRecom(FetchInFoFromSql):
 
 if __name__ == '__main__':
     hot_recom = HotRecom()
-    # hot_recom.load_data('../../data/ratings.csv')
-    # preditions = hot_recom.predict(hot_recom.df,n=20000)
+    hot_recom.load_data('../../data/ratings.csv')
+    preditions = hot_recom.predict_all(hot_recom.df)
 
     # hot_recom.get_top_n_hot(preditions,50)
-    # hot_recom.tosql(preditions,database='MovieRecommender',tablename='hot_recom')
+    hot_recom.tosql(preditions,database='MovieRecommender',tablename='hot_recom_all')
     hot_recom.get_current_hotmovies()

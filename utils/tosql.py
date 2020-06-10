@@ -47,8 +47,10 @@ class FetchInFoFromSql:
             self.cur.execute(sql)
             data = self.cur.fetchall()
 
-        except:
+        except Exception as e:
+            print(e)
             print("查询失败")
+
             data = None
         return data
 

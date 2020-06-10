@@ -8,86 +8,93 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(800, 900)
-        self.widget = QtWidgets.QWidget(Form)
-        self.widget.setGeometry(QtCore.QRect(80, 100, 460, 210))
+class Ui_MovieInfo(object):
+    def setupUi(self, MovieInfo):
+        MovieInfo.setObjectName("MovieInfo")
+        MovieInfo.resize(800, 900)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(MovieInfo)
+        self.verticalLayout_2.setContentsMargins(14, 16, -1, -1)
+        self.verticalLayout_2.setSpacing(9)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem)
+        self.account = QtWidgets.QLabel(MovieInfo)
+        self.account.setMinimumSize(QtCore.QSize(30, 0))
+        self.account.setIndent(0)
+        self.account.setObjectName("account")
+        self.horizontalLayout_2.addWidget(self.account, 0, QtCore.Qt.AlignLeft)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.widget = QtWidgets.QWidget(MovieInfo)
         self.widget.setObjectName("widget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.widget_3 = QtWidgets.QWidget(self.widget)
         self.widget_3.setObjectName("widget_3")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.widget_3)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label_2 = QtWidgets.QLabel(self.widget_3)
-        self.label_2.setObjectName("label_2")
-        self.verticalLayout.addWidget(self.label_2)
-        self.label_3 = QtWidgets.QLabel(self.widget_3)
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout.addWidget(self.label_3)
+        self.movieImage = QtWidgets.QLabel(self.widget_3)
+        self.movieImage.setObjectName("movieImage")
+        self.verticalLayout.addWidget(self.movieImage, 0, QtCore.Qt.AlignHCenter)
+        self.ratingInfo = QtWidgets.QLabel(self.widget_3)
+        self.ratingInfo.setObjectName("ratingInfo")
+        self.verticalLayout.addWidget(self.ratingInfo)
         self.widget_2 = QtWidgets.QWidget(self.widget_3)
         self.widget_2.setObjectName("widget_2")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.widget_2)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.label_4 = QtWidgets.QLabel(self.widget_2)
-        self.label_4.setObjectName("label_4")
-        self.horizontalLayout_3.addWidget(self.label_4)
+        self.rating = QtWidgets.QLabel(self.widget_2)
+        self.rating.setObjectName("rating")
+        self.horizontalLayout_3.addWidget(self.rating)
         self.spinBox = QtWidgets.QSpinBox(self.widget_2)
-        self.spinBox.setMinimum(1)
+        self.spinBox.setMinimum(0)
         self.spinBox.setMaximum(5)
-        self.spinBox.setProperty("value", 1)
+        self.spinBox.setProperty("value", 0)
+        self.spinBox.setDisplayIntegerBase(10)
         self.spinBox.setObjectName("spinBox")
         self.horizontalLayout_3.addWidget(self.spinBox)
         self.verticalLayout.addWidget(self.widget_2)
+        self.verticalLayout.setStretch(0, 2)
+        self.verticalLayout.setStretch(1, 1)
+        self.verticalLayout.setStretch(2, 1)
         self.horizontalLayout.addWidget(self.widget_3)
-        self.textBrowser = QtWidgets.QTextBrowser(self.widget)
-        self.textBrowser.setObjectName("textBrowser")
-        self.horizontalLayout.addWidget(self.textBrowser)
-        self.groupBox_2 = QtWidgets.QGroupBox(Form)
-        self.groupBox_2.setGeometry(QtCore.QRect(40, 580, 681, 211))
-        self.groupBox_2.setObjectName("groupBox_2")
-        self.widget1 = QtWidgets.QWidget(Form)
-        self.widget1.setObjectName("widget1")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget1)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem)
-        self.label = QtWidgets.QLabel(self.widget1)
-        self.label.setMinimumSize(QtCore.QSize(30, 0))
-        self.label.setIndent(0)
-        self.label.setObjectName("label")
-        self.horizontalLayout_2.addWidget(self.label, 0, QtCore.Qt.AlignLeft)
-        self.pushButton_3 = QtWidgets.QPushButton(self.widget1)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_2.addWidget(self.pushButton_3, 0, QtCore.Qt.AlignRight)
+        self.movieinfo = QtWidgets.QLabel(self.widget)
+        self.movieinfo.setObjectName("movieinfo")
+        self.horizontalLayout.addWidget(self.movieinfo)
+        self.horizontalLayout.setStretch(0, 2)
+        self.horizontalLayout.setStretch(1, 3)
+        self.verticalLayout_2.addWidget(self.widget)
+        self.similarMovie = QMyMovieGroupBox(MovieInfo)
+        self.similarMovie.setObjectName("similarMovie")
+        self.verticalLayout_2.addWidget(self.similarMovie)
+        self.verticalLayout_2.setStretch(1, 2)
+        self.verticalLayout_2.setStretch(2, 3)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(MovieInfo)
+        QtCore.QMetaObject.connectSlotsByName(MovieInfo)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, MovieInfo):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_2.setText(_translate("Form", "海报"))
-        self.label_3.setText(_translate("Form", "评分： 4人看过，2人作出评价"))
-        self.label_4.setText(_translate("Form", "TextLabel"))
-        self.textBrowser.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">名称：</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">上映时间：</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">类型：</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">电影简介：</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">IMDb链接：</p></body></html>"))
-        self.groupBox_2.setTitle(_translate("Form", "相似电影："))
-        self.label.setText(_translate("Form", "账号："))
-        self.pushButton_3.setText(_translate("Form", "返回"))
+        MovieInfo.setWindowTitle(_translate("MovieInfo", "电影详情"))
+        self.account.setText(_translate("MovieInfo", "账号："))
+        self.movieImage.setText(_translate("MovieInfo", "海报"))
+        self.ratingInfo.setText(_translate("MovieInfo", "评分： 4人看过，2人作出评价"))
+        self.rating.setText(_translate("MovieInfo", "您的评价："))
+        self.movieinfo.setText(_translate("MovieInfo", "名称：\n"
+"\n"
+"\n"
+"上映时间：\n"
+"\n"
+"\n"
+"类型：\n"
+"\n"
+"\n"
+"电影简介：\n"
+"\n"
+"\n"
+"IMDb链接："))
+        self.similarMovie.setTitle(_translate("MovieInfo", "相似电影："))
 
+from QMyMovieGroupBox import QMyMovieGroupBox
