@@ -47,32 +47,6 @@
        </property>
       </spacer>
      </item>
-     <item alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="accountLabel">
-       <property name="minimumSize">
-        <size>
-         <width>30</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>账号：</string>
-       </property>
-       <property name="margin">
-        <number>0</number>
-       </property>
-       <property name="indent">
-        <number>0</number>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="backButton">
-       <property name="text">
-        <string>返回</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item>
@@ -193,7 +167,7 @@ color: rgb(255, 255, 255);</string>
   <customwidget>
    <class>QMyMovieGroupBox</class>
    <extends>QGroupBox</extends>
-   <header location="global">QMyMovieGroupBox</header>
+   <header>QMyMovieGroupBox</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -212,22 +186,6 @@ color: rgb(255, 255, 255);</string>
     <hint type="destinationlabel">
      <x>716</x>
      <y>199</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>backButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MovieSearch</receiver>
-   <slot>back_mainwindow()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>784</x>
-     <y>27</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>570</x>
-     <y>194</y>
     </hint>
    </hints>
   </connection>

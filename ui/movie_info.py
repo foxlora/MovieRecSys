@@ -21,11 +21,6 @@ class Ui_MovieInfo(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem)
-        self.account = QtWidgets.QLabel(MovieInfo)
-        self.account.setMinimumSize(QtCore.QSize(30, 0))
-        self.account.setIndent(0)
-        self.account.setObjectName("account")
-        self.horizontalLayout_2.addWidget(self.account, 0, QtCore.Qt.AlignLeft)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.widget = QtWidgets.QWidget(MovieInfo)
         self.widget.setObjectName("widget")
@@ -78,7 +73,6 @@ class Ui_MovieInfo(object):
     def retranslateUi(self, MovieInfo):
         _translate = QtCore.QCoreApplication.translate
         MovieInfo.setWindowTitle(_translate("MovieInfo", "电影详情"))
-        self.account.setText(_translate("MovieInfo", "账号："))
         self.movieImage.setText(_translate("MovieInfo", "海报"))
         self.ratingInfo.setText(_translate("MovieInfo", "评分： 4人看过，2人作出评价"))
         self.rating.setText(_translate("MovieInfo", "您的评价："))

@@ -21,14 +21,6 @@ class Ui_MovieSearch(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem)
-        self.accountLabel = QtWidgets.QLabel(MovieSearch)
-        self.accountLabel.setMinimumSize(QtCore.QSize(30, 0))
-        self.accountLabel.setIndent(0)
-        self.accountLabel.setObjectName("accountLabel")
-        self.horizontalLayout_2.addWidget(self.accountLabel, 0, QtCore.Qt.AlignLeft)
-        self.backButton = QtWidgets.QPushButton(MovieSearch)
-        self.backButton.setObjectName("backButton")
-        self.horizontalLayout_2.addWidget(self.backButton, 0, QtCore.Qt.AlignRight)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.widget = QtWidgets.QWidget(MovieSearch)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
@@ -77,14 +69,11 @@ class Ui_MovieSearch(object):
 
         self.retranslateUi(MovieSearch)
         self.searchButton.clicked.connect(MovieSearch.search_movie)
-        self.backButton.clicked.connect(MovieSearch.back_mainwindow)
         QtCore.QMetaObject.connectSlotsByName(MovieSearch)
 
     def retranslateUi(self, MovieSearch):
         _translate = QtCore.QCoreApplication.translate
         MovieSearch.setWindowTitle(_translate("MovieSearch", "电影搜索"))
-        self.accountLabel.setText(_translate("MovieSearch", "账号："))
-        self.backButton.setText(_translate("MovieSearch", "返回"))
         self.searchLineEdit.setWhatsThis(_translate("MovieSearch", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

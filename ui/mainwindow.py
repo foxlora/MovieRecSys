@@ -43,6 +43,7 @@ class Ui_mainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(36, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.searchLineEdit = QtWidgets.QLineEdit(self.widget)
+        self.searchLineEdit.setText("")
         self.searchLineEdit.setObjectName("searchLineEdit")
         self.horizontalLayout.addWidget(self.searchLineEdit)
         self.searchButton = QtWidgets.QPushButton(self.widget)
@@ -88,7 +89,7 @@ class Ui_mainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">输入您想看的影片</p></body></html>"))
-        self.searchLineEdit.setText(_translate("mainWindow", "输入你想看的影片"))
+        self.searchLineEdit.setPlaceholderText(_translate("mainWindow", "输入你想看的影片"))
         self.searchButton.setText(_translate("mainWindow", "搜索"))
         self.groupBox.setTitle(_translate("mainWindow", "为您推荐："))
         self.groupBox_2.setTitle(_translate("mainWindow", "当前热门："))

@@ -27,7 +27,10 @@ class MainWindowPane(QMainWindow,Ui_mainWindow):
         self.groupBox.initUI(msg='登录后为您推荐内容···')
 
         hotrem = HotRecom()
-        self.groupBox_2.initUI(movies_list=hotrem.get_current_hotmovies())
+        self.groupBox_2.initUI(movies_list=hotrem.get_current_hotmovies(10))
+
+
+
 
 
     def search(self):

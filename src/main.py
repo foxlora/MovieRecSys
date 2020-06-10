@@ -7,6 +7,8 @@ from src.movieinfo_pane import MovieInfoPane
 from src.login_sucess_pane import LoginSucessPane
 from src.moviesearch_pane import MovieSearchPane
 
+from src.fetch_movie_info import FetchFromMySql
+
 
 from PyQt5.Qt import *
 
@@ -34,17 +36,20 @@ if __name__ == "__main__":
         login_pane.hide()
         mainwindow_pane.show()
 
-    def login_to_logsucess():
+    def login_to_logsucess(account,pwd):
         login_pane.hide()
+        loginsucess_pane.initUI(account)
         loginsucess_pane.show()
 
     def login_to_register():
         login_pane.hide()
         register_pane.show()
 
-    def loginsucess_to_movieinfo():
-        loginsucess_pane.hide()
-        movieinfo_pane.show()
+    def loginsucess_to_moviesearch(search_text):
+        moviesearch_pane.searchLineEdit.setText(search_text)
+        moviesearch_pane.keywrodBox.setTitle(f'包含关键词{search_text}的电影')
+        moviesearch_pane.updateUI(search_text)
+        moviesearch_pane.show()
 
     def loginsucess_to_main():
         loginsucess_pane.hide()
@@ -58,36 +63,51 @@ if __name__ == "__main__":
         moviesearch_pane.hide()
         mainwindow_pane.show()
 
+    def moviesearch_to_movieinfo(movie):
+        movieinfo_pane.show()
+        movieinfo_pane.init_ui(movie)
+
+
 
     def main_to_moviesearch(search_text):
         moviesearch_pane.searchLineEdit.setText(search_text)
         moviesearch_pane.keywrodBox.setTitle(f'包含关键词{search_text}的电影')
         moviesearch_pane.updateUI(search_text)
         moviesearch_pane.show()
-        mainwindow_pane.hide()
+
 
     def main_to_login():
         login_pane.show()
         mainwindow_pane.hide()
 
-    def show_login_pane():
+    def show_login_pane(account,pwd):
         '''
         显示登录界面
+        账号密码存入数据库
         :param parent:
         :return:
         '''
-        login_pane = LoginPane(register_pane)
-        login_pane.move(0,register_pane.height())
-        login_pane.show()
+        # login_pane = LoginPane(register_pane)
+        # login_pane.move(0,register_pane.height())
+        # login_pane.show()
+        #
+        # animation = QPropertyAnimation(login_pane)
+        # animation.setTargetObject(login_pane)
+        # animation.setPropertyName(b"pos")
+        # animation.setStartValue(login_pane.pos())
+        # animation.setEndValue(QPoint(0,0))
+        # animation.setDuration(500)
+        # animation.setEasingCurve(QEasingCurve.OutBounce)
+        # animation.start(QAbstractAnimation.DeleteWhenStopped)
 
-        animation = QPropertyAnimation(login_pane)
-        animation.setTargetObject(login_pane)
-        animation.setPropertyName(b"pos")
-        animation.setStartValue(login_pane.pos())
-        animation.setEndValue(QPoint(0,0))
-        animation.setDuration(500)
-        animation.setEasingCurve(QEasingCurve.OutBounce)
-        animation.start(QAbstractAnimation.DeleteWhenStopped)
+
+
+
+        login_pane.show()
+        login_pane.accountLineEdit.setText(account)
+        register_pane.hide()
+
+
 
     def show_mainwindow_pane():
         '''
@@ -100,7 +120,12 @@ if __name__ == "__main__":
     def main_to_movieinfo(movie):
         movieinfo_pane.show()
         movieinfo_pane.init_ui(movie)
-        mainwindow_pane.hide()
+
+
+    def loginsuccess_to_movieinfo(movie):
+
+        movieinfo_pane.init_ui(movie)
+        movieinfo_pane.show()
 
 
     mainwindow_pane.login_signal.connect(main_to_login)
@@ -110,13 +135,23 @@ if __name__ == "__main__":
 
 
     moviesearch_pane.back_mainwindow_signal.connect(moviesearch_to_main)
+    for index in range(10):
+        eval(f'moviesearch_pane.keywrodBox.button{index}_1_clicked.connect(moviesearch_to_movieinfo)')
+
+
 
     login_pane.to_mainwindow_signal.connect(login_to_main)
     login_pane.to_loginsuccess_signal.connect(login_to_logsucess)
     login_pane.to_register_signal.connect(login_to_register)
 
+    for index in range(10):
+        eval(f'loginsucess_pane.RecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
+        eval(f'loginsucess_pane.HotRecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
+
+    loginsucess_pane.to_moviesearch_signal.connect(loginsucess_to_moviesearch)
+
     register_pane.reg_account_pwd_signal.connect(show_login_pane)
-    register_pane.exit_signal.connect(show_mainwindow_pane)
+
     mainwindow_pane.show()
 
     sys.exit(app.exec_())

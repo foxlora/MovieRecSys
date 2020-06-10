@@ -92,6 +92,9 @@ class SVDRecom:
 
         except:
             raise KeyError('not find uid:%s,please check userid and retry'%uid)
+
+
+
     def fit(self):
         # 训练模型
         self.algo = SVD()

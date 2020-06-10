@@ -157,8 +157,8 @@ class HotRecom(FetchInFoFromSql):
 
 
 
-    def get_current_hotmovies(self):
-        sql = f"select movieId from MovieRecommender.hot_recom  limit 10"
+    def get_current_hotmovies(self,n):
+        sql = f"select movieId from MovieRecommender.hot_recom  limit 0,{n}"
         data = self.execute_sql(sql)#(('356',), ('318',), ('79132',), ('2571',), ('122904',), ('2959',), ('58559',), ('7153',), ('5952',), ('4993',))
         hot_movies = [i[0] for i in data]
 

@@ -12,25 +12,25 @@ class QMyMovieGroupBox(QGroupBox):
     '''
 
     '''
-    button0_0_clicked = pyqtSignal(str)
+
     button0_1_clicked = pyqtSignal(str)
-    button1_0_clicked = pyqtSignal(str)
+
     button1_1_clicked = pyqtSignal(str)
-    button2_0_clicked = pyqtSignal(str)
+
     button2_1_clicked = pyqtSignal(str)
-    button3_0_clicked = pyqtSignal(str)
+
     button3_1_clicked = pyqtSignal(str)
-    button4_0_clicked = pyqtSignal(str)
+
     button4_1_clicked = pyqtSignal(str)
-    button5_0_clicked = pyqtSignal(str)
+
     button5_1_clicked = pyqtSignal(str)
-    button6_0_clicked = pyqtSignal(str)
+
     button6_1_clicked = pyqtSignal(str)
-    button7_0_clicked = pyqtSignal(str)
+
     button7_1_clicked = pyqtSignal(str)
-    button8_0_clicked = pyqtSignal(str)
+
     button8_1_clicked = pyqtSignal(str)
-    button9_0_clicked = pyqtSignal(str)
+
     button9_1_clicked = pyqtSignal(str)
 
 
@@ -48,7 +48,7 @@ class QMyMovieGroupBox(QGroupBox):
     def get_movieId_bybuttontext(self,buttontext):
         fetchinfo = FetchFromMySql()
         movie_title,movie_date = buttontext.split("\n")
-        sql = f'SELECT movieId FROM MovieRecommender.moviesinfo WHERE title = "{movie_title}"'
+        sql = f'SELECT movieId FROM MovieRecommender.moviesinfo WHERE title = "{movie_title}" and date = "{movie_date}"'
         data = fetchinfo.execute_sql(sql)
         return data[0][0]
 

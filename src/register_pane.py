@@ -6,11 +6,12 @@ __author__ = 'Foxlora'
 __time__ = '2020/5/16 19:11'
 
 from PyQt5.Qt import *
-from ui.register import Ui_Form
+from ui.register import Ui_Register
+from src.fetch_movie_info import FetchFromMySql
 
-class RegisterPane(QWidget,Ui_Form):
+class RegisterPane(QWidget,Ui_Register):
 
-    exit_signal = pyqtSignal()
+
     reg_account_pwd_signal = pyqtSignal(str,str)
 
 
@@ -23,13 +24,13 @@ class RegisterPane(QWidget,Ui_Form):
         激活注册按钮
         :return:
         '''
-        account_text = self.accountLineEdit.text()
-        password_text = self.pswLineEdit.text()
-        confirm_psw_text = self.validpLineEdit.text()
-        if account_text and password_text and confirm_psw_text:
+        account = self.accountLineEdit.text()
+        pwd = self.pwdLineEdit.text()
+        confirm_pwd = self.confirmLineEdit.text()
+        if account and pwd and confirm_pwd:
             self.registerButton.setEnabled(True)
-        else:
-            self.registerButton.setEnabled(False)
+
+
 
 
     def register(self):
@@ -38,20 +39,33 @@ class RegisterPane(QWidget,Ui_Form):
         :param:
         :return:
         '''
-        account_text = self.accountLineEdit.text()
-        password_text = self.pswLineEdit.text()
-        confirm_psw_text = self.validpLineEdit.text()
+        account = self.accountLineEdit.text()
+        pwd = self.pwdLineEdit.text()
+        confirm_pwd = self.confirmLineEdit.text()
+        fetchinfo = FetchFromMySql()
 
-        if password_text != confirm_psw_text:
+        if pwd != confirm_pwd:
             '''
             两次输入的密码不匹配，重新输入
             '''
-            self.pswLineEdit.setText("")
-            self.validpLineEdit.setText("")
+            self.pwdLineEdit.setText("")
+            self.confirmLineEdit.setText("")
             QMessageBox.information(self,"两次输入的密码不匹配，请重新输入","",QMessageBox.Yes)
 
         else:
-            self.reg_account_pwd_signal.emit(account_text,password_text)
+            sql = f'select password FROM MovieRecommender.users WHERE userid = "{account}"'
+
+            pwd_mysql = fetchinfo.execute_sql(sql)
+            if pwd_mysql:#已有账号，显示账号已被注册
+                QMessageBox.information(self, "此账号已被注册，请修改账号", "", QMessageBox.Yes)
+            else:
+                sql_insert = f'INSERT INTO MovieRecommender.users (userid,password) VALUES ("{account}","{pwd}")'
+                fetchinfo.execute_sql(sql_insert)
+                fetchinfo.conn.commit()
+
+                with open("../data/users.csv", mode='a+') as f:
+                    f.write(f"{account},{pwd}\n")
+                self.reg_account_pwd_signal.emit(account,pwd)
 
 
 
@@ -65,7 +79,7 @@ if __name__ == "__main__":
     #创建应用程序对象
     app = QApplication(sys.argv)
     window = RegisterPane()
-    window.exit_signal.connect(lambda :print('tuichu'))
+
     window.reg_account_pwd_signal.connect(lambda account,pwd:print(account,pwd))
 
     window.show()

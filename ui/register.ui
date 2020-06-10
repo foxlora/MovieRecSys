@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Register</class>
+ <widget class="QWidget" name="Register">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,197 +19,209 @@
   <property name="windowTitle">
    <string>账号注册</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>191</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item>
     <widget class="QWidget" name="widget" native="true">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetNoConstraint</enum>
+      </property>
+      <property name="labelAlignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="formAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="horizontalSpacing">
+       <number>8</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>30</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="accountLabel">
+        <property name="styleSheet">
+         <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
+
+color: rgb(103, 103, 103);</string>
         </property>
-        <property name="sizeHint" stdset="0">
+        <property name="text">
+         <string>账    号：</string>
+        </property>
+        <property name="buddy">
+         <cstring>accountLineEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="passwordLabel">
+        <property name="styleSheet">
+         <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
+
+color: rgb(103, 103, 103);</string>
+        </property>
+        <property name="text">
+         <string>密    码：</string>
+        </property>
+        <property name="buddy">
+         <cstring>pwdLineEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="passwordLabel_2">
+        <property name="styleSheet">
+         <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
+
+color: rgb(103, 103, 103);</string>
+        </property>
+        <property name="text">
+         <string>确认密码：</string>
+        </property>
+        <property name="buddy">
+         <cstring>confirmLineEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QPushButton" name="registerButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
          <size>
-          <width>186</width>
-          <height>20</height>
+          <width>0</width>
+          <height>25</height>
          </size>
         </property>
-       </spacer>
+        <property name="text">
+         <string>注册</string>
+        </property>
+       </widget>
       </item>
-      <item>
-       <layout class="QFormLayout" name="formLayout">
-        <property name="labelAlignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="horizontalSpacing">
-         <number>16</number>
-        </property>
-        <property name="verticalSpacing">
-         <number>23</number>
-        </property>
-        <property name="topMargin">
-         <number>100</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="accountLabel">
-          <property name="styleSheet">
-           <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
-
-color: rgb(103, 103, 103);</string>
-          </property>
-          <property name="text">
-           <string>账    号：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="accountLineEdit">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="passwordLabel_2">
-          <property name="styleSheet">
-           <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
-
-color: rgb(103, 103, 103);</string>
-          </property>
-          <property name="text">
-           <string>密    码：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="pwdLineEdit">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="inputMask">
-           <string notr="true" extracomment="请输入密码"/>
-          </property>
-          <property name="text">
-           <string notr="true" extracomment="请输入密码"/>
-          </property>
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-          <property name="placeholderText">
-           <string notr="true" extracomment="hello"/>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="validpLabel">
-          <property name="styleSheet">
-           <string notr="true">font: 9pt &quot;方正粗黑宋简体&quot;;
-
-color: rgb(103, 103, 103);</string>
-          </property>
-          <property name="text">
-           <string>确认密码：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="validpLineEdit">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0" colspan="2">
-         <widget class="QPushButton" name="loginButton">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>注册</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="accountLineEdit"/>
       </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="pwdLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>186</width>
-          <height>20</height>
-         </size>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="confirmLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
         </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>191</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>validpLineEdit</sender>
+   <sender>registerButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Register</receiver>
+   <slot>register()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>351</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>820</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>accountLineEdit</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>Form</receiver>
+   <receiver>Register</receiver>
    <slot>enable_regitser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>596</x>
-     <y>113</y>
+     <x>349</x>
+     <y>124</y>
     </hint>
     <hint type="destinationlabel">
-     <x>686</x>
-     <y>114</y>
+     <x>660</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pwdLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Register</receiver>
+   <slot>enable_regitser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>confirmLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Register</receiver>
+   <slot>enable_regitser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>398</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>761</x>
+     <y>224</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>register()</slot>
-  <slot>back_pane()</slot>
   <slot>enable_regitser()</slot>
  </slots>
 </ui>

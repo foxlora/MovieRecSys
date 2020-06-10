@@ -47,7 +47,6 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
     def updateUI(self,title):
 
         movies = self.get_moviesId_byname(title)
-        print(movies)
         # self.keywrodBox.__init__()
         self.keywrodBox.updateUI(movies_list=movies)
 

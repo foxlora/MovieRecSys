@@ -99,6 +99,9 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;输入您想看的影片&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
           <string>输入你想看的影片</string>
          </property>
         </widget>
@@ -170,7 +173,7 @@ color: rgb(255, 255, 255);</string>
   <customwidget>
    <class>QMyMovieGroupBox</class>
    <extends>QGroupBox</extends>
-   <header location="global">QMyMovieGroupBox</header>
+   <header>QMyMovieGroupBox</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

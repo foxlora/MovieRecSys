@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>800</width>
     <height>900</height>
    </rect>
   </property>
@@ -30,9 +30,12 @@
     <number>6</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0,0">
      <property name="spacing">
       <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>3</number>
      </property>
      <item>
       <spacer name="horizontalSpacer_3">
@@ -48,7 +51,7 @@
       </spacer>
      </item>
      <item alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="accountLabel">
        <property name="minimumSize">
         <size>
          <width>30</width>
@@ -67,14 +70,38 @@
       </widget>
      </item>
      <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="footprintPushButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>11</width>
+         <height>12</height>
+        </size>
+       </property>
        <property name="text">
         <string>我的足迹</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="logoutPushButton">
        <property name="text">
         <string>登出</string>
        </property>
@@ -102,7 +129,7 @@
        <height>55</height>
       </size>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,7,1,1">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,1,1">
       <property name="spacing">
        <number>6</number>
       </property>
@@ -135,7 +162,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="searchLineEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>5</horstretch>
@@ -150,12 +177,15 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;输入您想看的影片&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
          <string>输入你想看的影片</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="searchPushButton">
         <property name="font">
          <font>
           <family>楷体</family>
@@ -188,14 +218,14 @@ color: rgb(255, 255, 255);</string>
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QMyMovieGroupBox" name="RecomBox">
      <property name="title">
       <string>为您推荐：</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QMyMovieGroupBox" name="HotRecomBox">
      <property name="title">
       <string>当前热门：</string>
      </property>
@@ -203,17 +233,25 @@ color: rgb(255, 255, 255);</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QMyMovieGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>QMyMovieGroupBox</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>footprintPushButton</sender>
    <signal>pressed()</signal>
    <receiver>LoginSucess</receiver>
    <slot>to_footprint()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>474</x>
-     <y>21</y>
+     <x>722</x>
+     <y>23</y>
     </hint>
     <hint type="destinationlabel">
      <x>329</x>
@@ -222,14 +260,14 @@ color: rgb(255, 255, 255);</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>logoutPushButton</sender>
    <signal>pressed()</signal>
    <receiver>LoginSucess</receiver>
    <slot>to_mainwindow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>562</x>
-     <y>12</y>
+     <x>797</x>
+     <y>14</y>
     </hint>
     <hint type="destinationlabel">
      <x>566</x>
@@ -238,14 +276,14 @@ color: rgb(255, 255, 255);</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>searchPushButton</sender>
    <signal>pressed()</signal>
    <receiver>LoginSucess</receiver>
    <slot>to_movieinfo()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>64</y>
+     <x>694</x>
+     <y>75</y>
     </hint>
     <hint type="destinationlabel">
      <x>531</x>

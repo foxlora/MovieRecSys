@@ -315,6 +315,17 @@ class FetchFromMySql(FetchInFoFromSql):
         title,date,genres,briefinfo,url_imdbid = data[0]
         return title,date,genres,briefinfo,url_imdbid
 
+    def get_recom_movies_byuid(self,uid,n):
+        '''
+        根据给定的userid，返回n个推荐的movie
+        :param uid:
+        :param n:
+        :return:
+        '''
+        sql = f'select iid from MovieRecommender.svd_predictions where uid = "{uid}" ORDER BY est DESC LIMIT 0,{n}'
+        data = self.execute_sql(sql)
+        recom_movies = [movie[0] for movie in data]
+        return recom_movies
 
 if __name__ == '__main__':
     fetch_movie = FetchFromMySql()
@@ -324,4 +335,4 @@ if __name__ == '__main__':
     #
     # tk_image = fetch_movie.get_image(src)
 
-    fetch_movie.get_movie_briefinfo('1')
+    fetch_movie.get_recom_movies_byuid('2',10)
