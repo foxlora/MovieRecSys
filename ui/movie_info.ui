@@ -24,7 +24,7 @@
     <number>16</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -40,6 +40,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="account">
+       <property name="text">
+        <string>账号：</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -74,18 +81,21 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBox">
+             <widget class="QDoubleSpinBox" name="doubleSpinBox">
+              <property name="decimals">
+               <number>1</number>
+              </property>
               <property name="minimum">
-               <number>0</number>
+               <double>0.000000000000000</double>
               </property>
               <property name="maximum">
-               <number>5</number>
+               <double>5.000000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.500000000000000</double>
               </property>
               <property name="value">
-               <number>0</number>
-              </property>
-              <property name="displayIntegerBase">
-               <number>10</number>
+               <double>0.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -135,5 +145,25 @@ IMDb链接：</string>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>doubleSpinBox</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MovieInfo</receiver>
+   <slot>complete_rating()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>242</x>
+     <y>331</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>complete_rating()</slot>
+ </slots>
 </ui>

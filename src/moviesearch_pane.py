@@ -20,6 +20,7 @@ class MovieSearchPane(QWidget,Ui_MovieSearch):
         super().__init__(parent=parent,*args,**kwargs)
         self.setupUi(self)
         self.keywrodBox.initUI()
+        self.uid = None
 
 
     def search_movie(self):

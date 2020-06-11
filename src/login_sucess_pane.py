@@ -20,13 +20,15 @@ class LoginSucessPane(QWidget,Ui_LoginSucess):
     def __init__(self,parent=None,*args,**kwargs):
         super().__init__(parent=parent,*args,**kwargs)
         self.setupUi(self)
+        self.uid = None
 
 
     def initUI(self,account):
+        self.uid = account
         fetchinfo = FetchFromMySql()
         hotrem = HotRecom()
 
-        self.RecomBox.initUI(movies_list=fetchinfo.get_recom_movies_byuid(account,10))
+        self.RecomBox.initUI(movies_list=fetchinfo.get_recom_movies_byuid(account,10),msg="您还未有观看记录")
         self.HotRecomBox.initUI(movies_list=hotrem.get_current_hotmovies(10))
 
         self.accountLabel.setText(f'账号：{account}')

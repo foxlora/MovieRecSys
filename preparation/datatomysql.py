@@ -7,8 +7,9 @@ __author__ = 'Foxlora'
 __time__ = '2020/5/17 16:55'
 
 import os
+import sqlalchemy
 
-from utils import tosql
+from utils.tosql import FetchInFoFromSql,csvtosql
 from utils.logger import Logger
 
 import configparser
@@ -20,22 +21,17 @@ config.read("../config.ini")
 
 
 
-class DataToSql():
+class DataToSql(FetchInFoFromSql):
     '''
     将数据导入到mysql中
     :return:
     '''
     def __init__(self):
+        super().__init__()
         self.logger = Logger()
-        self.connect_sql()
 
-    def connect_sql(self):
-        try:
-            self.conn,self.cur = tosql.ConnectSql()
-            self.logger.info('connect to mysql sucess')
-        except Exception as e:
-            raise e
-            self.logger.error(str(e))
+
+
 
     def create_database(self,databasename,ifexist="fail"):
         '''
@@ -86,20 +82,17 @@ class DataToSql():
 
 
 
-    def push_data_tosql(self,filepath,databasename,table_name):
+    def push_data_tosql(self,filepath,databasename,table_name,dtype=None):
         #把links.csv中的数据导入到mysql中
         try:
-            tosql.csvtosql(filepath=filepath,database=databasename,header=0,table_name=table_name)
+
+            csvtosql(filepath=filepath,database=databasename,header=0,table_name=table_name,dtype=dtype)
             self.logger.info(f'{filepath}导入数据库成功')
 
         except Exception as e:
             raise e
             self.logger.error(f'{filepath}导入数据库失败')
 
-    def close_connect(self):
-        self.cur.close()
-        self.conn.close()
-        return
 
 
 
@@ -109,9 +102,11 @@ if __name__ == '__main__':
     datatosql = DataToSql()
     #datatosql.create_database('MovieRecommender',ifexist='append')
     #datatosql.push_data_tosql('../data/links.csv','MovieRecommender','links')
-    datatosql.push_data_tosql('../data/movies.csv','MovieRecommender','movies')
-    datatosql.push_data_tosql('../data/ratings.csv','MovieRecommender','ratings')
-    datatosql.push_data_tosql('../data/users.csv','MovieRecommender','users')
-    datatosql.close_connect()
+    # datatosql.push_data_tosql('../data/movies.csv','MovieRecommender','movies')
+
+    dtype = {"userId":sqlalchemy.types.TEXT,"movieId":sqlalchemy.types.TEXT,"rating":sqlalchemy.types.Float,"timestamp":sqlalchemy.types.BigInteger}
+    datatosql.push_data_tosql('../data/ratings.csv','MovieRecommender','ratings',dtype=dtype)
+    # datatosql.push_data_tosql('../data/users.csv','MovieRecommender','users')
+
 
 

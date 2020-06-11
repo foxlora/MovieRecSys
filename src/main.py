@@ -46,6 +46,8 @@ if __name__ == "__main__":
         register_pane.show()
 
     def loginsucess_to_moviesearch(search_text):
+        uid = loginsucess_pane.uid
+        moviesearch_pane.uid = uid
         moviesearch_pane.searchLineEdit.setText(search_text)
         moviesearch_pane.keywrodBox.setTitle(f'包含关键词{search_text}的电影')
         moviesearch_pane.updateUI(search_text)
@@ -55,17 +57,17 @@ if __name__ == "__main__":
         loginsucess_pane.hide()
         mainwindow_pane.show()
 
-    def loginsucess_to_movieinfo():
-        loginsucess_pane.hide()
-        movieinfo_pane.show()
+
 
     def moviesearch_to_main():
         moviesearch_pane.hide()
         mainwindow_pane.show()
 
     def moviesearch_to_movieinfo(movie):
-        movieinfo_pane.show()
+        uid = moviesearch_pane.uid
+        movieinfo_pane.uid = uid
         movieinfo_pane.init_ui(movie)
+        movieinfo_pane.show()
 
 
 
@@ -123,7 +125,8 @@ if __name__ == "__main__":
 
 
     def loginsuccess_to_movieinfo(movie):
-
+        uid = loginsucess_pane.uid
+        movieinfo_pane.uid = uid
         movieinfo_pane.init_ui(movie)
         movieinfo_pane.show()
 
@@ -147,7 +150,6 @@ if __name__ == "__main__":
     for index in range(10):
         eval(f'loginsucess_pane.RecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
         eval(f'loginsucess_pane.HotRecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
-
     loginsucess_pane.to_moviesearch_signal.connect(loginsucess_to_moviesearch)
 
     register_pane.reg_account_pwd_signal.connect(show_login_pane)

@@ -86,3 +86,6 @@
 [2020-05-19 23:01:29,794][MainThread:18716][task_id:info][logger.py:44][INFO] : ../data/movies.csv导入数据库成功
 [2020-05-19 23:01:34,882][MainThread:18716][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
 [2020-05-19 23:01:34,941][MainThread:18716][task_id:info][logger.py:44][INFO] : ../data/users.csv导入数据库成功
+[2020-06-10 17:23:32,331][MainThread:28636][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
+[2020-06-10 17:29:14,863][MainThread:14804][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
+[2020-06-10 17:37:53,295][MainThread:2152][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
