@@ -18,7 +18,7 @@ from collections import defaultdict
 from surprise import dump
 
 import pandas as pd
-
+import os
 
 
 logger = Logger()
@@ -79,10 +79,12 @@ class KnnRecom:
 
         df = pd.DataFrame(data=data)
         df.columns = ['movieId','k_nearest_neighbors']
-        knn_predictions = '../../data/knn_predictions.csv'
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        knn_predictions = os.path.join(BASE_DIR, 'data/knn_predictions.csv')
+
         df.to_csv(knn_predictions,index=False)
-        print(df)
-        dftosql(DataFrame=df,database=database,table_name=tablename)
+
+        dftosql(DataFrame=df,database=database,table_name=tablename,if_exists='replace')
 
 
 

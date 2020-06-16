@@ -13,6 +13,7 @@ from utils.tosql import dftosql
 from utils.config import Config
 from collections import defaultdict
 from surprise import dump
+import os
 
 import pandas as pd
 
@@ -124,10 +125,11 @@ class SVDRecom:
         top_n = defaultdict(list)
         df = pd.DataFrame(data=predictions)
         df.columns = ['uid','iid','true_r','est','detail']
-        svd_predictions = '../../data/svd_predictions.csv'
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        svd_predictions = os.path.join(BASE_DIR,'data/svd_predictions.csv')
         df.to_csv(svd_predictions,index=False)
         df.drop(columns=['true_r','detail'],inplace=True)
-        dftosql(DataFrame=df,database=database,table_name=tablename)
+        dftosql(DataFrame=df,database=database,table_name=tablename,if_exists="replace")
 
 
         return top_n
