@@ -47,7 +47,7 @@ class QMyMovieGroupBox(QGroupBox):
 
     def get_movieId_bybuttontext(self,buttontext):
         fetchinfo = FetchFromMySql()
-        movie_title,movie_date = buttontext.split("\n")
+        movie_title,movie_date = buttontext.split("\n")[:2]
         sql = f'SELECT movieId FROM MovieRecommender.moviesinfo WHERE title = "{movie_title}" and date = "{movie_date}"'
         data = fetchinfo.execute_sql(sql)
         return data[0][0]
@@ -297,6 +297,6 @@ if __name__ == '__main__':
     window.initUI(movies_list=['1'])
     window.updateUI(movies_list=['2','3'])
 
-    window.setWindowTitle('nihao')
+    window.setWindowTitle('电影推荐显示窗口')
     window.show()
     sys.exit(app.exec_())

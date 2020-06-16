@@ -6,6 +6,7 @@ from src.mainwindow_pane import MainWindowPane
 from src.movieinfo_pane import MovieInfoPane
 from src.login_sucess_pane import LoginSucessPane
 from src.moviesearch_pane import MovieSearchPane
+from src.footprint_pane import FootPrintPane
 
 from src.fetch_movie_info import FetchFromMySql
 
@@ -29,6 +30,7 @@ if __name__ == "__main__":
     loginsucess_pane = LoginSucessPane()
     movieinfo_pane = MovieInfoPane()
     moviesearch_pane = MovieSearchPane()
+    footprint_pane = FootPrintPane()
 
 
     #创建槽函数
@@ -38,7 +40,8 @@ if __name__ == "__main__":
 
     def login_to_logsucess(account,pwd):
         login_pane.hide()
-        loginsucess_pane.initUI(account)
+        loginsucess_pane.uid = account
+        loginsucess_pane.initUI()
         loginsucess_pane.show()
 
     def login_to_register():
@@ -52,6 +55,13 @@ if __name__ == "__main__":
         moviesearch_pane.keywrodBox.setTitle(f'包含关键词{search_text}的电影')
         moviesearch_pane.updateUI(search_text)
         moviesearch_pane.show()
+
+
+    def loginsucess_to_footprint():
+        uid = loginsucess_pane.uid
+        footprint_pane.uid = uid
+        footprint_pane.init_ui()
+        footprint_pane.show()
 
     def loginsucess_to_main():
         loginsucess_pane.hide()
@@ -131,6 +141,14 @@ if __name__ == "__main__":
         movieinfo_pane.show()
 
 
+    def footprint_to_movieinfo(movie):
+        uid = footprint_pane.uid
+        movieinfo_pane.uid = uid
+        movieinfo_pane.init_ui(movie)
+        movieinfo_pane.show()
+
+
+
     mainwindow_pane.login_signal.connect(main_to_login)
     mainwindow_pane.search_signal.connect(main_to_moviesearch)
     for index in range(10):
@@ -148,9 +166,15 @@ if __name__ == "__main__":
     login_pane.to_register_signal.connect(login_to_register)
 
     for index in range(10):
-        eval(f'loginsucess_pane.RecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
+        eval(f'loginsucess_pane.RealTimeRecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
+        eval(f'loginsucess_pane.OfflineRecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
         eval(f'loginsucess_pane.HotRecomBox.button{index}_1_clicked.connect(loginsuccess_to_movieinfo)')
     loginsucess_pane.to_moviesearch_signal.connect(loginsucess_to_moviesearch)
+    loginsucess_pane.to_footprint_signal.connect(loginsucess_to_footprint)
+
+
+    for index in range(10):
+        eval(f'footprint_pane.footPrintBox.button{index}_1_clicked.connect(footprint_to_movieinfo)')
 
     register_pane.reg_account_pwd_signal.connect(show_login_pane)
 

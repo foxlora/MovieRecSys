@@ -327,6 +327,8 @@ class FetchFromMySql(FetchInFoFromSql):
         recom_movies = [movie[0] for movie in data]
         return recom_movies
 
+
+
 if __name__ == '__main__':
     fetch_movie = FetchFromMySql()
     # url = fetch_movie.get_movie_url('6')

@@ -74,6 +74,7 @@ class RegisterPane(QWidget,Ui_Register):
         self.exit_signal.emit()
 
 
+
 if __name__ == "__main__":
     import sys
     #创建应用程序对象

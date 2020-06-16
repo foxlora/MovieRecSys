@@ -23,6 +23,7 @@ from src.fetch_movie_info import FetchInFoFromSql
 import pandas as pd
 import heapq
 from src.offline.hot_recom import HotRecom
+import os
 
 
 logger = Logger()
@@ -35,7 +36,9 @@ class RealTimeRecom:
     def load_data(self):
         # 载入原始.csv数据
         reader = Reader(line_format='user item rating timestamp', sep=',', skip_lines=1)
-        data = Dataset.load_from_file(file_path='../' + Config().config['DATAPATH']['ratings_path'], reader=reader)
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        raing_file_path = os.path.join(BASE_DIR, Config().config['DATAPATH']['ratings_path'])
+        data = Dataset.load_from_file(file_path=raing_file_path, reader=reader)
 
         # 构建训练集
         self.trainset = data.build_full_trainset()
@@ -83,6 +86,15 @@ class RealTimeRecom:
                 est = self.estimate(user_inner_id,movie_inner_id)
                 realtime_recom.append((movie_raw_id,est))
         return realtime_recom
+
+    def get_realtime_recom(self,user_raw_id):
+        try:
+            realtime_recom = self.predict(user_raw_id)
+            realtime_recom_res = heapq.nlargest(10, realtime_recom, key=lambda t: t[1])
+            res = ([movie_raw_id for (movie_raw_id,est) in realtime_recom_res])
+        except:
+            res = []
+        return res
 
 
     def estimate(self,uid,iid):
@@ -181,4 +193,4 @@ if __name__ == '__main__':
     realtimeRecom.algo = algo
     #
 
-    realtimeRecom.predict('foxlora')
+    realtimeRecom.get_realtime_recom('foxlora')

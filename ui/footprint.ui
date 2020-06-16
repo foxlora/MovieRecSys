@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>FootPrint</class>
+ <widget class="QWidget" name="FootPrint">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>785</width>
-    <height>425</height>
+    <width>800</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>您的足迹</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+   <property name="spacing">
+    <number>33</number>
+   </property>
+   <property name="topMargin">
+    <number>14</number>
+   </property>
+   <property name="bottomMargin">
+    <number>17</number>
+   </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <property name="spacing">
@@ -33,7 +42,7 @@
       </spacer>
      </item>
      <item alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="account">
        <property name="minimumSize">
         <size>
          <width>30</width>
@@ -51,24 +60,19 @@
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="text">
-        <string>返回</string>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>登出</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QMyMovieGroupBox" name="footPrintBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>5</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="title">
       <string>您过去看过：</string>
      </property>
@@ -76,6 +80,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QMyMovieGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>QMyMovieGroupBox</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

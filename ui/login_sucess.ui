@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>电影推荐系统</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,4,4">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,4,4,4">
    <property name="spacing">
     <number>25</number>
    </property>
@@ -218,7 +218,14 @@ color: rgb(255, 255, 255);</string>
     </widget>
    </item>
    <item>
-    <widget class="QMyMovieGroupBox" name="RecomBox">
+    <widget class="QMyMovieGroupBox" name="RealTimeRecomBox">
+     <property name="title">
+      <string>为您实时推荐：</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QMyMovieGroupBox" name="OfflineRecomBox">
      <property name="title">
       <string>为您推荐：</string>
      </property>

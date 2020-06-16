@@ -75,6 +75,15 @@ class MovieInfoPane(QWidget,Ui_MovieInfo):
             if self.uid:
                 with open('../data/ratings.csv',mode='a+') as f:
                     f.write(f'{self.uid},{self.movie},{rating_value},{timestamp}\n')
+
+                #将评分实时写入到数据库
+                fetchinfo = FetchInFoFromSql()
+                sql = f'INSERT INTO MovieRecommender.ratings (userId, movieId, rating, timestamp) VALUES ("{self.uid}","{self.movie}",{rating_value},{timestamp})'
+                fetchinfo.execute_sql(sql)
+                fetchinfo.conn.commit()
+
+
+
             else:
                 QMessageBox.information(self, "请先登录再评价", "", QMessageBox.Yes)
 
@@ -103,9 +112,10 @@ if __name__ == "__main__":
     #创建应用程序对象
     app = QApplication(sys.argv)
     window = MovieInfoPane()
+    window.uid = "foxlora"
+
+
     window.init_ui('356')
-
-
 
     window.show()
     sys.exit(app.exec_())

@@ -89,3 +89,4 @@
 [2020-06-10 17:23:32,331][MainThread:28636][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
 [2020-06-10 17:29:14,863][MainThread:14804][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
 [2020-06-10 17:37:53,295][MainThread:2152][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
+[2020-06-13 14:12:30,593][MainThread:7424][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
