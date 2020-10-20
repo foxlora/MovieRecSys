@@ -90,3 +90,7 @@
 [2020-06-10 17:29:14,863][MainThread:14804][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
 [2020-06-10 17:37:53,295][MainThread:2152][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
 [2020-06-13 14:12:30,593][MainThread:7424][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
+[2020-10-08 11:30:19,092][MainThread:5592][task_id:info][logger.py:44][INFO] : ../data/links.csv导入数据库成功
+[2020-10-08 11:30:22,127][MainThread:5592][task_id:info][logger.py:44][INFO] : ../data/movies.csv导入数据库成功
+[2020-10-08 11:30:35,433][MainThread:5592][task_id:info][logger.py:44][INFO] : ../data/ratings.csv导入数据库成功
+[2020-10-08 11:30:35,726][MainThread:5592][task_id:info][logger.py:44][INFO] : ../data/users.csv导入数据库成功

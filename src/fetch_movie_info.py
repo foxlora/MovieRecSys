@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-
+读取数据，并将处理好的数据存入到数据库，方便以后的读取应用
 '''
 __author__ = 'Foxlora'
 __time__ = '2020/5/21 10:43'
@@ -21,6 +21,9 @@ import os
 from utils.tosql import FetchInFoFromSql
 
 class FetchMovieInfo:
+    '''
+    读取movies.csv数据并进行处理
+    '''
     def __init__(self):
 
         # self.conn, self.cur = ConnectSql()

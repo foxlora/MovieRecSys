@@ -100,13 +100,13 @@ class DataToSql(FetchInFoFromSql):
 
 if __name__ == '__main__':
     datatosql = DataToSql()
-    #datatosql.create_database('MovieRecommender',ifexist='append')
-    #datatosql.push_data_tosql('../data/links.csv','MovieRecommender','links')
-    # datatosql.push_data_tosql('../data/movies.csv','MovieRecommender','movies')
+    datatosql.create_database('MovieRecommender',ifexist='append')
+    datatosql.push_data_tosql('../data/links.csv','MovieRecommender','links')
+    datatosql.push_data_tosql('../data/movies.csv','MovieRecommender','movies')
 
     dtype = {"userId":sqlalchemy.types.TEXT,"movieId":sqlalchemy.types.TEXT,"rating":sqlalchemy.types.Float,"timestamp":sqlalchemy.types.BigInteger}
     datatosql.push_data_tosql('../data/ratings.csv','MovieRecommender','ratings',dtype=dtype)
-    # datatosql.push_data_tosql('../data/users.csv','MovieRecommender','users')
+    datatosql.push_data_tosql('../data/users.csv','MovieRecommender','users')
 
 
 
