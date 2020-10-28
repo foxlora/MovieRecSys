@@ -42,26 +42,22 @@
   [svd算法介绍:](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#matrix-factorization-based-algorithms)
 
   ​	目标函数：
-  $$
-  
-  $$
-  ![image-20201028223616887](README.assets\image-20201028223616887.png)
 
-  
+  ![image-20201028223616887](https://github.com/foxlora/MovieRecSys/blob/master/README.assets/image-20201028223616887.png)
 
   ​	损失函数：
 
-  ![image-20201028223439164](.\README.assets\image-20201028223439164.png)
+  ![image-20201028223439164](https://github.com/foxlora/MovieRecSys/blob/master/README.assets/image-20201028223439164.png)
 
   ​	sgd参数更新：
 
-  ![image-20201028143250107](.\README.assets\image-20201028143250107.png)
+  ![image-20201028143250107](https://github.com/foxlora/MovieRecSys/blob/master/README.assets/image-20201028143250107.png)
 
 - knn_recom.py
 
   ​	目标函数：
   
-  ![image-20201028223659508](README.assets\image-20201028223659508.png)
+  ![image-20201028223659508](https://github.com/foxlora/MovieRecSys/blob/master/README.assets/image-20201028223659508.png)
   
 - deeplearning_recom.py
 
