@@ -7,7 +7,7 @@ __time__ = '2020/5/16 19:11'
 
 from PyQt5.Qt import *
 from ui.register import Ui_Register
-from src.fetch_movie_info import FetchFromMySql
+from preparation.fetch_movie_info import FetchFromMySql
 
 class RegisterPane(QWidget,Ui_Register):
 

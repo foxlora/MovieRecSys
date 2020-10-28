@@ -27,9 +27,9 @@ class FetchMovieInfo:
     def __init__(self):
 
         # self.conn, self.cur = ConnectSql()
-        self.links_df = pd.read_csv('../data/links.csv',header=0,dtype=str)
-        self.movies_df = pd.read_csv('../data/movies.csv',header=0,dtype=str)
-        self.moviesinfo_df = pd.read_csv('../data/moviesinfo.csv',header=0,dtype=str)
+        self.links_df = pd.read_csv('../data/links.csv', header=0, dtype=str)
+        self.movies_df = pd.read_csv('../data/movies.csv', header=0, dtype=str)
+        self.moviesinfo_df = pd.read_csv('../data/moviesinfo.csv', header=0, dtype=str)
 
     def get_movie_url(self,movieId):
         '''
@@ -177,7 +177,7 @@ class FetchMovieInfo:
 
 
 
-        df_raw_movies = pd.read_csv(filepath_or_buffer='../data/movies.csv', sep=',', header=0,dtype={'movieId':str})
+        df_raw_movies = pd.read_csv(filepath_or_buffer='../data/movies.csv', sep=',', header=0, dtype={'movieId':str})
         movieIds = df_raw_movies['movieId'].values
 
         for movie in movieIds:

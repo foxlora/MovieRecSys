@@ -7,7 +7,7 @@ __time__ = '2020/5/17 10:59'
 
 from PyQt5.Qt import *
 from ui.login_sucess import Ui_LoginSucess
-from src.fetch_movie_info import FetchFromMySql
+from preparation.fetch_movie_info import FetchFromMySql
 from src.offline.hot_recom import HotRecom
 from src.online.realtime_recom import RealTimeRecom
 import os

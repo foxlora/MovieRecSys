@@ -8,9 +8,6 @@ from src.login_sucess_pane import LoginSucessPane
 from src.moviesearch_pane import MovieSearchPane
 from src.footprint_pane import FootPrintPane
 
-from src.fetch_movie_info import FetchFromMySql
-
-
 from PyQt5.Qt import *
 
 

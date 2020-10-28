@@ -7,7 +7,7 @@ __time__ = '2020/5/17 14:29'
 
 from PyQt5.Qt import *
 from ui.movie_info import Ui_MovieInfo
-from src.fetch_movie_info import FetchFromMySql
+from preparation.fetch_movie_info import FetchFromMySql
 from utils.tosql import FetchInFoFromSql
 import time
 

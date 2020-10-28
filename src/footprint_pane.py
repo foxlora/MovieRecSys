@@ -8,7 +8,6 @@ __time__ = '2020/6/13 13:55'
 
 from PyQt5.Qt import *
 from ui.footprint import Ui_FootPrint
-from src.fetch_movie_info import FetchFromMySql
 from utils.tosql import FetchInFoFromSql
 import time
 

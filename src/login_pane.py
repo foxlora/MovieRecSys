@@ -7,7 +7,7 @@ __time__ = '2020/5/17 10:59'
 
 from PyQt5.Qt import *
 from ui.login import Ui_Login
-from src.fetch_movie_info import FetchFromMySql
+from preparation.fetch_movie_info import FetchFromMySql
 
 class LoginPane(QWidget,Ui_Login):
 

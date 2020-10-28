@@ -6,7 +6,7 @@ __author__ = 'Foxlora'
 __time__ = '2020/5/21 18:52'
 
 from PyQt5.Qt import *
-from src.fetch_movie_info import FetchFromMySql
+from preparation.fetch_movie_info import FetchFromMySql
 
 class QMyMovieGroupBox(QGroupBox):
     '''

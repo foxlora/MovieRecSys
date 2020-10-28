@@ -18,7 +18,7 @@ from utils.config import Config
 from collections import defaultdict
 from surprise import dump
 
-from src.fetch_movie_info import FetchInFoFromSql
+from preparation.fetch_movie_info import FetchInFoFromSql
 
 import pandas as pd
 import heapq
