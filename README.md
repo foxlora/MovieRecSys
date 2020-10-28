@@ -15,7 +15,7 @@
 
  开发环境：pycharm + python3.7
 
- 软件架构：PyQt5 + mysql
+ 软件架构：PyQt5 + mysql + APScheduler
 
 
 
@@ -35,9 +35,13 @@
 
 **离线推荐：**
 
+使用三种算法模型对日志数据进行训练，将推荐的结果保存在mysql数据库中。使用APScheduler库对这三种任务进行定时更新管理。
+
+APScheduler是Python提供的一个可以跨平台，定时运行
+
 - svd_recom.py
 
-  [经典的矩阵分解算法](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#matrix-factorization-based-algorithms)
+  [svd是推荐系统领域的矩阵分解算法](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#matrix-factorization-based-algorithms)
 
   ​	目标函数：
   $$
@@ -49,26 +53,20 @@
   \lambda\left(b_i^2 + b_u^2 + ||q_i||^2 + ||p_u||^2\right)
   $$
   ​	sgd参数更新：
-  $$
-  \begin{split}b_u &\leftarrow b_u &+ \gamma (e_{ui} - \lambda b_u)\\
-  b_i &\leftarrow b_i &+ \gamma (e_{ui} - \lambda b_i)\\
-  p_u &\leftarrow p_u &+ \gamma (e_{ui} \cdot q_i - \lambda p_u)\\
-  q_i &\leftarrow q_i &+ \gamma (e_{ui} \cdot p_u - \lambda q_i)\end{split}
-  $$
   
-
+  ![image-20201028143250107](C:\Users\18351\PycharmProjects\MovieRecSys\README.assets\image-20201028143250107.png)
+  
 - knn_recom.py
 
   ​	目标函数：
-  $$
-  \hat{r}_{ui} = \frac{
-  \sum\limits_{v \in N^k_i(u)} \text{sim}(u, v) \cdot r_{vi}}
-  {\sum\limits_{v \in N^k_i(u)} \text{sim}(u, v)}
-  $$
-
+  
+  ![image-20201028143156379](C:\Users\18351\Pictures\image-20201028143156379.png)
+  
 - deeplearning_recom.py
 
-  这部分参考了
+  采用了双塔模型，
+  
+  
 
 **热门推荐：**
 
@@ -81,6 +79,12 @@
 **在线部分：**
 
 ​	主要解决用户冷启动问题；
+
+
+
+
+
+### 三、运行步骤
 
 
 
