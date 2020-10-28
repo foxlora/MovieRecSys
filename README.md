@@ -37,34 +37,35 @@
 
 使用三种算法模型对日志数据进行训练，将推荐的结果保存在mysql数据库中。使用APScheduler库对这三种任务进行定时更新管理。
 
-APScheduler是Python提供的一个可以跨平台，定时运行
-
 - svd_recom.py
 
-  [svd是推荐系统领域的矩阵分解算法](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#matrix-factorization-based-algorithms)
+  [svd算法介绍:](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#matrix-factorization-based-algorithms)
 
   ​	目标函数：
   $$
-  \hat{r}_{ui} = \mu + b_u + b_i + q_i^Tp_u
+  
   $$
+  ![image-20201028223616887](README.assets\image-20201028223616887.png)
+
+  
+
   ​	损失函数：
-  $$
-  \sum_{r_{ui} \in R_{train}} \left(r_{ui} - \hat{r}_{ui} \right)^2 +
-  \lambda\left(b_i^2 + b_u^2 + ||q_i||^2 + ||p_u||^2\right)
-  $$
+
+  ![image-20201028223439164](.\README.assets\image-20201028223439164.png)
+
   ​	sgd参数更新：
-  
-  ![image-20201028143250107](C:\Users\18351\PycharmProjects\MovieRecSys\README.assets\image-20201028143250107.png)
-  
+
+  ![image-20201028143250107](.\README.assets\image-20201028143250107.png)
+
 - knn_recom.py
 
   ​	目标函数：
   
-  ![image-20201028143156379](C:\Users\18351\Pictures\image-20201028143156379.png)
+  ![image-20201028223659508](README.assets\image-20201028223659508.png)
   
 - deeplearning_recom.py
 
-  采用了双塔模型，
+  采用了双塔模型，通过DNN分别得到movieId，userID的向量，
   
   
 
